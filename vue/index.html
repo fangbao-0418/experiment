@@ -1,0 +1,44 @@
+<!--
+ * @Author: fangbao
+ * @Date: 2020-05-17 11:58:38
+ * @LastEditors: fangbao
+ * @LastEditTime: 2020-05-17 12:03:57
+ * @FilePath: /xt-crm/Users/fb/Documents/experiment/vue/index.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p>{{ a.join(',') }}</p>
+    <button @click="add">
+      add
+    </button>
+    <button @click="set">
+      set
+    </button>
+  </div>
+  <script>
+    var data = { a: [1] }
+    var vm = new Vue({
+      el: '#app',
+      data: data,
+      methods: {
+        add () {
+          console.log(this.a, 'a')
+          this.a.push(1)
+        },
+        set () {
+          console.log(this.a, 'a')
+          this.a[1] = 2
+        }
+      }
+    })
+  </script>
+</body>
+</html>

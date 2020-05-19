@@ -1,0 +1,36 @@
+<!--
+ * @Author: fangbao
+ * @Date: 2020-05-17 11:51:40
+ * @LastEditors: fangbao
+ * @LastEditTime: 2020-05-17 11:57:38
+ * @FilePath: /xt-crm/Users/fb/Documents/experiment/es5/defineProperty.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a = {
+      b: []
+    }
+    Object.defineProperty(a, 'b', {
+      get: function () {
+        console.log(arguments, 'get')
+        // return a.b
+        return []
+      },
+      set: function () {
+        console.log(arguments, 'set')
+      }
+    })
+    var arr = a.b
+    // arr = [1, 2, 3]
+    // a.b = [1, 2, 3]
+    a.b[1] = 2
+  </script>
+</body>
+</html>
