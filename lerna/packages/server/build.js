@@ -5,6 +5,8 @@
  * @FilePath: /eslint-plugin-xt-react/Users/fangbao/Documents/xituan/xt-react-template/build.js
  */
 
+
+
 const argv = require('yargs').argv
 const { exec } = require('child_process')
 
