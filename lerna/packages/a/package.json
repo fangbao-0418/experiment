@@ -1,0 +1,6 @@
+{
+  "name": "a",
+  "dependencies": {
+    "history": "^5.0.0"
+  }
+}
