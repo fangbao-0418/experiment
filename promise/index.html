@@ -1,0 +1,29 @@
+<!--
+ * @Author: fangbao
+ * @Date: 2020-06-06 23:53:42
+ * @LastEditors: fangbao
+ * @LastEditTime: 2020-06-06 23:56:49
+ * @FilePath: /xt-crm/Users/fb/Documents/experiment/promise/index.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let installedModules= []
+    const p = new Promise((resolve, reject) => {
+      installedModules = [resolve, reject]
+    })
+    function cb (value, mode) {
+      console.log(value, mode, 'cb')
+    }
+    Promise.all([p]).then(cb)
+    console.log(installedModules, 'installedModules')
+    installedModules[0]()
+  </script>
+</body>
+</html>
