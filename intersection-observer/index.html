@@ -1,0 +1,58 @@
+<!--
+ * @Date: 2020-05-26 10:10:35
+ * @LastEditors: fangbao
+ * @LastEditTime: 2020-05-26 10:25:36
+ * @FilePath: /eslint-plugin-xt-react/Users/fangbao/Documents/fangbao/experiment/intersection-observer/index.html
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 10000px;
+    }
+    .block {
+      height: 1000px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div class="block">1</div>
+    <div class="block">1</div>
+    <div class="block">1</div>
+    <div class="block">1</div>
+    <div class="block">1</div>
+    <div class="block">1</div>
+    <div class="block">1</div>
+    <div class="block">1</div>
+    <div class="block">1</div>
+    <div class="block">1</div>
+    <div class="block">1</div>
+    <div class="block">1</div>
+    <div class="block">1</div>
+    <div class="block">1</div>
+    <div class="block">1</div>
+  </div>
+  <script>
+    const startTime = new Date().getTime()
+    var intersectionObserver = new IntersectionObserver(function(entries) {
+    // If intersectionRatio is 0, the target is out of view
+    // and we do not need to do anything.
+    const endTime = new Date().getTime()
+    console.log(endTime - startTime, 'diff')
+    console.log(entries, 'entries')
+    if (entries[0].intersectionRatio <= 0) return;
+
+      // loadItems(10);
+      console.log('Loaded new items');
+    });
+    // start observing
+    intersectionObserver.observe(document.querySelector('.block'));
+  </script>
+</body>
+</html>

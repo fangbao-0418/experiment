@@ -1,0 +1,102 @@
+<!--
+ * @Date: 2020-05-25 17:47:31
+ * @LastEditors: fangbao
+ * @LastEditTime: 2020-05-30 17:56:25
+ * @FilePath: /eslint-plugin-xt-react/Users/fangbao/Documents/fangbao/experiment/print/index.html
+--> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      counter-increment: page;
+    }
+    section {
+      page-break-after: always
+    }
+    @media print {
+      @page {
+        background: black;
+        margin: 0;
+        @bottom-left {
+          /* height: 2cm; */
+          content: counter(page) "/" counter(pages);
+        }
+      }
+    }
+    #pageFooter:after {
+      /* counter-increment: page; */
+      content:"Page " counter(page);
+      left: 0; 
+      top: 100%;
+      white-space: nowrap; 
+      z-index: 20;
+      -moz-border-radius: 5px; 
+      -moz-box-shadow: 0px 0px 4px #222;  
+      background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);  
+    }
+    .content {
+      /* position: absolute; */
+      /* top: 180px;
+      left: 0px;
+      right: 0px; */
+      margin: 180px 2cm 180px;
+    }
+    @page {
+      padding: 180px 2cm 180px;
+    }
+    .header {
+      height: 180px;
+      position: fixed;
+      top: 0px;
+      background: red;
+      left: 0px;
+      right: 0px;
+      color: white;
+      z-index: -1;
+    }
+    .footer {
+      height: 180px;
+      position: fixed;
+      bottom: 0px;
+      background: red;
+      left: 0px;
+      right: 0px;
+      color: white;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">111</div>
+  <div class="content">
+    <div>abc</div>
+    <div id="pageFooter"></div>
+    <section></section>
+    <div id="pageFooter"></div>
+    <section></section>
+  </div>
+  <div class="footer">222</div>
+  <script>
+    document.title = 'abc'
+    // window.location.href = '/'
+    //
+  </script>
+  <script>
+    function setPageSetup(){
+      // try{                 
+      //   var shell = new ActiveXObject("WScript.Shell");     
+      //   //往注册表中写入值
+      //   shell.RegWrite("HKEY_CURRENT_USER\\Software\\Microsoft\\Internet Explorer\\PageSetup\\footer","&b&d","REG_SZ");
+      // }catch(e){
+      //   alert("error:"+e);
+      // }
+    }
+    setPageSetup()
+  </script>
+</body>
+</html>

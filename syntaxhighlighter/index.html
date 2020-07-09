@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.1/build/styles/agate.min.css">
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.1/build/highlight.min.js"></script>
+</head>
+<body>
+  <pre>
+    <code class="hljs Java">
+      package com.hzxituan.palamidi.console.common.config;
+
+      import org.springframework.context.annotation.Configuration;
+      import org.springframework.web.servlet.config.annotation.CorsRegistry;
+      import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+      
+      @Configuration
+      public class MvcConfig extends WebMvcConfigurationSupport {
+      
+          /**
+           * 跨域
+           *
+           * @param registry
+           */
+          @Override
+          public void addCorsMappings(CorsRegistry registry) {
+              registry.addMapping("/**")
+                  .allowedOrigins("*")
+                  .allowedMethods("GET", "POST", "OPTIONS", "PUT")
+                  .allowedHeaders("Authorization", "Content-Type", "X-Requested-With", "accept", "Origin",
+                      "Access-Control-Request-Method",
+                      "Access-Control-Request-Headers")
+                  .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials")
+                  .allowCredentials(true).maxAge(3600);
+      
+          }
+      }
+    </code>
+  </pre>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((block) => {
+        console.log(block, 'block')
+        hljs.highlightBlock(block);
+      });
+    });
+  </script>
+</body>
+</html>

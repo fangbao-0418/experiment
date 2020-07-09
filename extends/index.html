@@ -1,0 +1,45 @@
+<!--
+ * @Date: 2020-05-19 17:45:14
+ * @LastEditors: fangbao
+ * @LastEditTime: 2020-05-19 17:59:10
+ * @FilePath: /eslint-plugin-xt-react/Users/fangbao/Documents/fangbao/experiment/extends/index.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    (function () {
+      function test (...parmas) {
+        console.log(this, 'this')
+        console.log(parmas, 'params')
+      }
+
+      // test()
+      var obj = {
+        name: 'davi'
+      }
+      var obj2 = {
+        name: 'cha'
+      }
+      var obj3 = {
+        name: 'charles'
+      }
+
+      // bind提供永久的绑定, 之后任意改变都不再受影响
+      var test2 = test.bind(obj);
+      var test3 = test2.bind(obj3);
+      // test2();
+      // test.apply(obj2, [1, 2]);
+      // test2.apply(obj2, [1, 2]);
+      test3.call(obj2, 1, 2);
+
+      console.log(test2 === test, 'test2 === test')
+    })();
+  </script>
+</body>
+</html>

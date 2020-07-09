@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "download-github-repo": "^0.1.4"
+  }
+}

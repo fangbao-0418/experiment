@@ -2,8 +2,8 @@
  * @Author: fangbao
  * @Date: 2020-05-17 11:58:38
  * @LastEditors: fangbao
- * @LastEditTime: 2020-05-17 12:03:57
- * @FilePath: /xt-crm/Users/fb/Documents/experiment/vue/index.html
+ * @LastEditTime: 2020-05-28 20:27:02
+ * @FilePath: /eslint-plugin-xt-react/Users/fangbao/Documents/fangbao/experiment/vue/index.html
  -->
 <!DOCTYPE html>
 <html lang="en">
@@ -12,30 +12,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="./js/Card.js"></script>
+  <style>
+    .boxList {
+      width: 50%;
+      float: left;
+    }
+  </style>
 </head>
 <body>
   <div id="app">
-    <p>{{ a.join(',') }}</p>
-    <button @click="add">
-      add
-    </button>
-    <button @click="set">
-      set
-    </button>
+    <div>
+      <div class="boxList">
+        <div v-for="item in data[0]">
+          <card :index="item" :mounted="onCardMounted(0)" />
+        </div>
+      </div>
+      <div class="boxList">
+        <div v-for="item in data[1]">
+          <card :index="item" :mounted="onCardMounted(1)" />
+        </div>
+      </div>
+    </div>
   </div>
   <script>
-    var data = { a: [1] }
+    var arr = []
+    while (arr.length < 9) {
+      arr.push(arr.length)
+    }
+    var data = [[], []]
+    const marks = [0, 0]
     var vm = new Vue({
       el: '#app',
-      data: data,
+      data: {
+        index: 0,
+        data
+      },
+      mounted() {
+        this.start()
+      },
       methods: {
-        add () {
-          console.log(this.a, 'a')
-          this.a.push(1)
+        start () {
+          this.data[0].push(arr[this.index])
         },
-        set () {
-          console.log(this.a, 'a')
-          this.a[1] = 2
+        getMin (arr) {
+          let min = arr[0]
+          let i = 0
+          arr.map((item, index) => {
+            if (item < min) {
+              min = item
+              i = index
+            }
+          })
+          return i
+        },
+        onCardMounted (index) {
+          return (offsetTop) => {
+            marks[index] = offsetTop
+            const i = this.getMin(marks)
+            this.index += 1
+            if (this.index > arr.length) {
+              return
+            }
+            this.data[i].push(arr[this.index])
+          }
         }
       }
     })
