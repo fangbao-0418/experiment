@@ -1,0 +1,13 @@
+0 silly argv { _: [ 'import' ],
+0 silly argv   lernaVersion: '3.22.1',
+0 silly argv   '$0': 'lerna',
+0 silly argv   dir: 'abc' }
+1 notice cli v3.22.1
+2 verbose rootPath /Users/fb/Documents/experiment/lerna
+3 error Error: Cannot find module '/Users/fb/Documents/experiment/lerna/abc/package.json'
+3 error     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+3 error     at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+3 error     at Module.require (internal/modules/cjs/loader.js:690:17)
+3 error     at require (internal/modules/cjs/helpers.js:25:18)
+3 error     at ImportCommand.initialize (/Users/fb/.config/yarn/global/node_modules/@lerna/import/index.js:57:25)
+3 error     at Promise.resolve.then (/Users/fb/.config/yarn/global/node_modules/@lerna/command/index.js:272:24)

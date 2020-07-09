@@ -1,0 +1,29 @@
+<!--
+ * @Author: fangbao
+ * @Date: 2020-06-06 23:35:56
+ * @LastEditors: fangbao
+ * @LastEditTime: 2020-06-06 23:40:05
+ * @FilePath: /xt-crm/Users/fb/Documents/experiment/html/script.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function loadjs (src) {
+      const el = document.createElement('script')
+      el.setAttribute('src', src)
+      el.onload = function () {
+        console.log('onload')
+      }
+      document.body.append(el)
+    }
+    loadjs('./test.js')
+    loadjs('./test2.js')
+  </script>
+</body>
+</html>
